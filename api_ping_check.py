@@ -10,8 +10,6 @@ vhost = sys.argv[2]
 username = sys.argv[3]
 password = sys.argv[4]
 
-print "%s actually ran with args %s" % (__file__, sys.argv)
-
 conn = httplib.HTTPConnection(server, port)
 path = "/api/aliveness-test/%s" % urllib.quote(vhost, safe="")
 method = "GET"
@@ -32,5 +30,5 @@ if response.status > 299:
     print "ERROR broker failing API aliveness test: status %s %s" % (response.status, response.read())
     exit(1)
 
-print "OK broker alive: %s" % response.read()
+print "OK RabbitMQ API ping check, broker %s:%s alive: %s" % (server,port,response.read())
 exit(0)
