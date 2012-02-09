@@ -3,7 +3,8 @@ import sys, os, datetime
 import pika
 
 # BUGBUG:  Need usage message and option parsing
-#  amqp_ping_check.py server:port vhost username password
+#  Usage:
+#      amqp_ping_check.py server:port vhost username password
 server, port = sys.argv[1].split(":")
 vhost = sys.argv[2]
 username = sys.argv[3]
