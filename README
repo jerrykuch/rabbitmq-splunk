@@ -24,7 +24,7 @@ tested with Splunk 4.3, build 115073, running on Ubuntu 11.
 
 * HOOKING RABBITMQ LOGS UP TO SPLUNK
 
-** What logs to watch
+** What RabbitMQ logs to watch
 
 Any RabbitMQ broker has a few logs of interest that you'll want to
 watch, in particular:
@@ -52,6 +52,34 @@ your specific platform see:  http://www.rabbitmq.com/configure.html
 
 
 ** Hooking Rabbit logs up to Splunk
+
+The following section assumes you're running RabbitMQ on one of the
+popular Linux distributions with respect to where the logs are found.
+If you're on a different platform, amend paths as needed based on
+http://www.rabbitmq.com/configure.html
+
+To make Splunk aware of the Rabbit logs, go to the Splunk web UI:
+
+   - 'Home' (by clicking on the Splunk logo at the top of the page)
+
+   - click on the 'Add data' button
+
+   - Under 'Choose a Data Type' click "A file or directory of files"
+
+   - Choose "Consume any file on this Splunk server" (or "Forward data
+     from files or directories to this Splunk server from another
+     server" if that is your destiny and you're using Splunk's
+     universal forwarder with remote machines)
+
+   - When prompted, enter the path to the log of your choice,
+     e.g. '/var/log/rabbit@ubuntu-sasl.log'  You can start a new
+     sourcetype, giving it a name like 'rabbitmq-logfile' if you'd
+     like.  When shown a preview make sure the timestamps are being
+     picked out correctly and that breaks between events look correct
+     (Splunk does a pretty good job of this by default).
+
+Now go to the search UI and make sure you can see the event sources.
+
 
 * HOOKING THE RABBITMQ MONITORING SCRIPTS UP TO SPLUNK
 
