@@ -1,4 +1,8 @@
-        README:  Splunk-friendly scripts for monitoring RabbitMQ
+
+                                    README
+
+                Splunk-friendly scripts for monitoring RabbitMQ
+
                                  Jerry Kuch
                               RabbitMQ/VMware
 
@@ -9,11 +13,41 @@ This is a collection of Python scripts that use the RabbitMQ
 management HTTP API to:
 
    1. Perform basic health checks of a RabbitMQ broker
-   2. Monitor the behavior of your RabbitMQ_based messaging application
+   2. Monitor the behavior of your RabbitMQ_based messaging
+      application (after you gather a bit of information about your
+      application's structure and function)
 
 * HOOKING RABBITMQ LOGS UP TO SPLUNK
 
-Any RabbitMQ broker 
+** What logs to watch
+
+Any RabbitMQ broker has a few logs of interest that you'll want to
+watch, in particular:
+
+   - the main broker log (named something like rabbit@nodename.log,
+     depending on your system)
+
+   - the Rabbit SASL (Erlang/OTP System Application Support Libraries)
+     log (named something like rabbitmq@nodename-sasl.log)
+
+The above logs, although in a slightly idiosyncratic format, are well
+parsed by Splunk.  Pretend they're regular syslogs and Splunk is smart
+enough to catch the timestamps and whatnot.
+
+You may also want to watch the startup_err and startup_log files,
+although you'll typically only look at these when starting or
+restarting a broker, or when one fails to start up.  Their format is
+not especially Splunk friendly, as they're just captures of Rabbit's
+console output, but pulling them into Splunk so they're available at
+your regular monitoring dashboard isn't a bad idea.
+
+Note that log locations vary by RabbitMQ version and platform.  For a
+quick reference to where they can be found, and what they're called on
+your specific platform see:  http://www.rabbitmq.com/configure.html
+
+
+
+** Hooking Rabbit logs up to Splunk
 
 * HOOKING THE RABBITMQ MONITORING SCRIPTS UP TO SPLUNK
 
