@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import sys
+import sys, datetime
 import json, httplib, urllib, base64, socket
 
 # BUGBUG:  Need usage message and option parsing
@@ -17,6 +17,7 @@ method = "GET"
 credentials = base64.b64encode("%s:%s" % (username, password))
 
 try:
+    now = datetime.datetime.now()
     conn.request(method, path, "",
                  {"Content-Type" : "application/json",
                   "Authorization" : "Basic " + credentials})
@@ -30,5 +31,8 @@ if response.status > 299:
     print "ERROR broker failing API aliveness test: status %s %s" % (response.status, response.read())
     exit(1)
 
-print "OK RabbitMQ API ping check, broker %s:%s alive: %s" % (server,port,response.read())
+print "%s OK RabbitMQ API ping check, broker %s:%s alive: %s" % (str(now),
+                                                                 server,
+                                                                 port,
+                                                                 response.read())
 exit(0)

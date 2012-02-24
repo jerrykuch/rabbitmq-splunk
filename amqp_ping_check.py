@@ -25,8 +25,7 @@ except Exception:
                                                        port)
     exit(1)
 
-print "%s OK %s connection to %s:%s successful." % (str(now),
-                                                    __file__,
-                                                    server,
-                                                    port)
+print "%s OK RabbitMQ AMQP ping check, broker %s:%s alive." % (str(now),
+                                                               server,
+                                                               port)
 exit(0)
