@@ -1,0 +1,57 @@
+        README:  Splunk-friendly scripts for monitoring RabbitMQ
+                                 Jerry Kuch
+                              RabbitMQ/VMware
+
+
+* INTRODUCTION
+
+This is a collection of Python scripts that use the RabbitMQ
+management HTTP API to:
+
+   1. Perform basic health checks of a RabbitMQ broker
+   2. Monitor the behavior of your RabbitMQ_based messaging application
+
+* HOOKING RABBITMQ LOGS UP TO SPLUNK
+
+Any RabbitMQ broker 
+
+* HOOKING THE RABBITMQ MONITORING SCRIPTS UP TO SPLUNK
+
+** Add a RabbitMQ user to your broker/cluster with 'Monitoring' abilities
+
+   Using the RabbitMQ management web UI;
+
+     - go to the 'Users' tab
+     - expand 'Add / update a user'
+     - enter a username and password
+     - click on the 'Monitoring tag'
+     - once the user is added, click on it and set permissions for the
+       virtual host you wish to monitor
+
+   At this point you may want to perform a quick test by invoking the
+   script api_ping_check.py manually as follows:
+
+     ./api_ping_check.py rabbitmqhost:55672 vhostname username password
+
+  If you get something like:
+
+     2012-02-23 17:24:09.422964 OK RabbitMQ API ping check, broker
+     localhost:55672 alive: {"status":"ok"}
+
+  All is well.  If you get a 401, you probably got the
+  username/password wrong, or else forgot to grant appropriate virtual
+  host permissions to the user you created above.
+
+** The wrapper script
+
+   - TODO:  why does wrapper exist, with reference
+   - TODO:  how does wrapper work
+
+** Connecting wrapped scripts to Splunk
+
+   - TODO:  walk through how to do this in Splunk UI
+
+** The monitoring scripts in this package
+
+   - TODO:  list the scripts and their usages
+
