@@ -17,6 +17,11 @@ management HTTP API to:
       application (after you gather a bit of information about your
       application's structure and function)
 
+The README in front of you documents what's in this package, and how
+to wire it into your Splunk installation.  The steps here have been
+tested with Splunk 4.3, build 115073, running on Ubuntu 11.
+
+
 * HOOKING RABBITMQ LOGS UP TO SPLUNK
 
 ** What logs to watch
@@ -44,7 +49,6 @@ your regular monitoring dashboard isn't a bad idea.
 Note that log locations vary by RabbitMQ version and platform.  For a
 quick reference to where they can be found, and what they're called on
 your specific platform see:  http://www.rabbitmq.com/configure.html
-
 
 
 ** Hooking Rabbit logs up to Splunk
@@ -88,4 +92,16 @@ your specific platform see:  http://www.rabbitmq.com/configure.html
 ** The monitoring scripts in this package
 
    - TODO:  list the scripts and their usages
+
+* REFERENCES
+
+  Splunk installation manual:
+  http://docs.splunk.com/Documentation/Splunk/latest/Installation/Startsplunkforthefirsttime
+
+  Starting Splunk for the first time:
+  http://docs.splunk.com/Documentation/Splunk/latest/Installation/Startsplunkforthefirsttime
+    Covers:
+      - starting the Splunk daemon
+      - accessing the Splunk web UI
+
 
