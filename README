@@ -132,4 +132,6 @@ Now go to the search UI and make sure you can see the event sources.
       - starting the Splunk daemon
       - accessing the Splunk web UI
 
+  Adding new Python to the Splunk environments:
+  http://splunk-base.splunk.com/answers/8/can-i-add-python-modules-to-the-splunk-environment
 
